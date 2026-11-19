@@ -30,9 +30,14 @@ def main():
             cur.execute("TRUNCATE TABLE documents RESTART IDENTITY;")
             
             print(f"Début de l'ingestion de {len(films)} fiches...")
-            for film in films:
-                # Composer un texte descriptif clair regroupant titre, genre et résumé
-                combined_text = f"Titre : {film['title']}. Genre : {film['genre']}. Description : {film['description']}"
+            for idx, film in enumerate(films, 1):
+                # Composer un texte descriptif clair regroupant titre, genre, année et résumé
+                combined_text = (
+                    f"Titre : {film['title']}. "
+                    f"Genre : {film['genre']}. "
+                    f"Année : {film['year']}. "
+                    f"Description : {film['description']}"
+                )
                 
                 # Générer le vecteur via nomic-embed-text (dimension 768)
                 response = ollama.embeddings(
@@ -41,10 +46,14 @@ def main():
                 )
                 embedding = response['embedding']
                 
-                # Préparer les métadonnées (genre, année)
+                # Préparer TOUTES les métadonnées (avec les affiches et bandes-annonces)
                 metadata = {
+                    "title": film["title"],
                     "genre": film["genre"],
-                    "year": film["year"]
+                    "year": film["year"],
+                    "description": film["description"],
+                    "poster_url": film.get("poster_url"),
+                    "trailer_url": film.get("trailer_url")
                 }
                 
                 # Insertion dans la base de données
@@ -60,8 +69,10 @@ def main():
                         embedding
                     )
                 )
+                print(f"[{idx}/{len(films)}] Inséré : {film['title']}")
+
             conn.commit()
-    print("Ingestion terminée avec succès !")
+    print("✅ Ingestion terminée avec succès !")
 
 if __name__ == "__main__":
     main()

@@ -4,10 +4,8 @@ import ollama
 import psycopg
 from dotenv import load_dotenv
 
-# Charger les variables du fichier .env
 load_dotenv()
 
-# Configuration de la page Streamlit (en mode wide pour un design moderne)
 st.set_page_config(
     page_title="CinéBot - Assistant RAG",
     page_icon="🍿",
@@ -15,14 +13,27 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Récupération sécurisée des paramètres depuis le .env
-DB_HOST = "localhost"
+# Paramètres BDD (.env)
+DB_HOST = os.getenv("POSTGRES_HOST", "localhost")
 DB_PORT = int(os.getenv("POSTGRES_PORT", 5432))
 DB_NAME = os.getenv("POSTGRES_DB", "rag")
 DB_USER = os.getenv("POSTGRES_USER", "rag_user")
 DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
+# Optionnel : lien vers votre interface BDD (pgAdmin, Adminer, etc.) ou URI de connexion
+DB_ADMIN_URL = os.getenv("DB_ADMIN_URL", f"postgresql://{DB_USER}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 
-# --- STYLE CSS PERSONNALISÉ POUR UN DESIGN PLUS MODERNE ---
+conn_string = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user={DB_USER} password={DB_PASSWORD}"
+
+def get_db_stats():
+    try:
+        with psycopg.connect(conn_string, connect_timeout=3) as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT COUNT(*) FROM documents;")
+                count = cur.fetchone()[0]
+        return True, count, None
+    except Exception as exc:
+        return False, 0, str(exc)
+
 st.markdown("""
     <style>
     .main {
@@ -34,30 +45,37 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# En-tête de l'application
 st.title("🍿 CinéBot RAG")
 st.markdown("Votre assistant intelligent propulsé par l'IA et PostgreSQL pour trouver le film parfait.")
 
-# Barre latérale (Sidebar) épurée
+db_ok, doc_count, db_err = get_db_stats()
+
 with st.sidebar:
     st.header("⚙️ Paramètres")
     seuil_input = st.slider("Seuil de similarité minimal (%)", 0.0, 100.0, 50.0, 5.0)
     st.info("💡 **Astuce :** Essayez des requêtes comme *« Un film sombre sur les rêves »* ou *« Je veux voir un Spider-Man »*.")
-    
+
+    st.divider()
+    st.header("🗄️ Base de données")
+    if db_ok:
+        st.success(f"Connecté • **{doc_count}** films indexés")
+        st.caption(f"Hôte : `{DB_HOST}:{DB_PORT}` | Base : `{DB_NAME}`")
+        st.markdown(f"[🔗 Lien / Accès BDD]({DB_ADMIN_URL})")
+    else:
+        st.error("Connexion BDD impossible")
+        st.caption(db_err)
+
     if st.button("🗑️ Effacer l'historique"):
         st.session_state.messages = []
         st.rerun()
 
-# Initialisation de l'historique de chat
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Affichage de l'historique des messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# Entrée utilisateur via le chat
 if user_query := st.chat_input("Que souhaitez-vous regarder aujourd'hui ?"):
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
@@ -66,17 +84,13 @@ if user_query := st.chat_input("Que souhaitez-vous regarder aujourd'hui ?"):
     with st.chat_message("assistant"):
         with st.spinner("Analyse et recherche sémantique en cours..."):
             try:
-                # 1. Générer l'embedding de la requête utilisateur
                 embed_response = ollama.embeddings(
-                    model='nomic-embed-text',
+                    model="nomic-embed-text",
                     prompt=user_query
                 )
-                query_embedding = embed_response['embedding']
+                query_embedding = embed_response["embedding"]
 
-                # 2. Interroger PostgreSQL avec la distance cosinus
-                conn_string = f"host={DB_HOST} port={DB_PORT} dbname={DB_NAME} user={DB_USER} password={DB_PASSWORD}"
                 candidates = []
-                
                 with psycopg.connect(conn_string) as conn:
                     with conn.cursor() as cur:
                         cur.execute(
@@ -92,14 +106,16 @@ if user_query := st.chat_input("Que souhaitez-vous regarder aujourd'hui ?"):
                         for row in rows:
                             distance = float(row[3])
                             similarity_pct = max(0.0, (1.0 - distance)) * 100
+                            meta = row[2] if isinstance(row[2], dict) else {}
                             candidates.append({
-                                "title": row[0],
+                                "source": row[0],
+                                "title": meta.get("title") or row[0],
                                 "content": row[1],
-                                "metadata": row[2] if isinstance(row[2], dict) else {},
+                                "metadata": meta,
+                                "distance": distance,
                                 "similarity": similarity_pct
                             })
 
-                # 3. Filtrer avec le seuil défini dans la sidebar
                 valid_candidates = [c for c in candidates if c["similarity"] >= seuil_input]
 
                 if not valid_candidates:
@@ -108,7 +124,12 @@ if user_query := st.chat_input("Que souhaitez-vous regarder aujourd'hui ?"):
                 else:
                     candidates_text = ""
                     for idx, c in enumerate(valid_candidates, 1):
-                        candidates_text += f"Candidat {idx}:\n- Titre : {c['title']}\n- Similarité : {c['similarity']:.1f}%\n- Détails : {c['content']}\n\n"
+                        candidates_text += (
+                            f"Candidat {idx}:\n"
+                            f"- Titre : {c['title']}\n"
+                            f"- Similarité : {c['similarity']:.1f}%\n"
+                            f"- Détails : {c['content']}\n\n"
+                        )
 
                     prompt_llm = f"""
 Tu es un assistant de recommandation de films strict et logique.
@@ -124,45 +145,55 @@ Consignes strictes :
 """
 
                     llm_response = ollama.chat(
-                        model='llama3.2',
-                        messages=[{'role': 'user', 'content': prompt_llm}]
+                        model="llama3.2",
+                        messages=[{"role": "user", "content": prompt_llm}]
                     )
-                    bot_reply = llm_response['message']['content']
+                    bot_reply = llm_response["message"]["content"]
                     st.markdown(bot_reply)
 
-                    # --- AFFICHAGE MODERNE DES FILMS (Affiches + Bandes-annonces) ---
                     st.markdown("### 🎥 Films recommandés dans notre catalogue")
-                    cols = st.columns(len(valid_candidates[:3]))
-                    
-                    for i, c in enumerate(valid_candidates[:3]):
+                    top_films = valid_candidates[:3]
+                    cols = st.columns(len(top_films))
+
+                    for i, c in enumerate(top_films):
                         meta = c["metadata"]
                         with cols[i]:
-                            st.markdown(f"**{c['title']}**")
-                            if "year" in meta:
-                                st.caption(f"{meta.get('genre', 'Film')} • {meta.get('year', '')}")
-                            
-                            # Affichage de l'affiche si l'URL existe
+                            st.markdown(f"#### {c['title']}")
+                            genre = meta.get("genre", "Film")
+                            year = meta.get("year", "")
+                            st.caption(f"{genre} • {year}" if year else genre)
+
                             poster = meta.get("poster_url")
                             if poster:
-                                st.image(poster, use_container_width=True)
-                            
-                            # Jauge de correspondance
-                            st.progress(int(c["similarity"]))
+                                try:
+                                    st.image(poster, use_container_width=True)
+                                except Exception:
+                                    st.warning("Affiche indisponible")
+                                    st.markdown(f"[🖼️ Lien de l'affiche]({poster})")
+
+                            description = meta.get("description") or c["content"]
+                            if description:
+                                st.write(description)
+
+                            st.progress(min(100, max(0, int(c["similarity"]))))
                             st.caption(f"Correspondance : **{c['similarity']:.1f}%**")
-                            
-                            # Lien bande-annonce
+
                             trailer = meta.get("trailer_url")
                             if trailer:
                                 st.markdown(f"[▶️ Voir la bande-annonce]({trailer})")
 
-                # Détails techniques dans un expander (Debug)
+                            st.caption(f"🗄️ BDD (`documents`) : `{c['source']}` • [Lien BDD]({DB_ADMIN_URL})")
+
                 with st.expander("🔍 Analyse vectorielle détaillée (Debug)"):
+                    st.markdown(f"**Source BDD :** `{DB_HOST}:{DB_PORT}/{DB_NAME}` ([Lien BDD]({DB_ADMIN_URL}))")
                     for c in candidates:
                         status = "✅ Valide" if c["similarity"] >= seuil_input else "❌ Rejeté"
-                        st.markdown(f"**{c['title']}** — {status} ({c['similarity']:.1f}%)")
-                        st.progress(int(c['similarity']))
+                        st.markdown(
+                            f"**{c['title']}** (`source`: `{c['source']}`) — {status} "
+                            f"(**{c['similarity']:.1f}%**, distance cosinus : `{c['distance']:.4f}`)"
+                        )
+                        st.progress(min(100, max(0, int(c["similarity"]))))
 
-                # Enregistrer la réponse dans l'historique
                 st.session_state.messages.append({"role": "assistant", "content": bot_reply})
 
             except Exception as e:
