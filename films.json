@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Inception",
+    "genre": "Science-Fiction",
+    "year": 2010,
+    "description": "Un voleur expérimenté qui dérobe des secrets d'entreprise en s'infiltrant dans le subconscient de ses cibles à travers leurs rêves se voit offrir une chance d'effacer son casier criminel en plantant une idée dans l'esprit d'un PDG.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+  },
+  {
+    "title": "Interstellar",
+    "genre": "Science-Fiction",
+    "year": 2014,
+    "description": "Dans un futur dystopique où la Terre se meurt, un groupe d'astronautes voyage à travers un trou de ver près de Saturne à la recherche d'une nouvelle planète habitable pour l'humanité, explorant les paradoxes temporels et la relativité.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+  },
+  {
+    "title": "The Dark Knight",
+    "genre": "Action / Drame",
+    "year": 2008,
+    "description": "Batman s'associe au lieutenant Jim Gordon et au procureur Harvey Dent pour démanteler les organisations criminelles de Gotham, mais ils font face à un génie du crime anarchique et psychopathe connu sous le nom du Joker.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+  },
+  {
+    "title": "Blade Runner 2049",
+    "genre": "Science-Fiction",
+    "year": 2017,
+    "description": "Trente ans après les événements du premier film, un nouveau Blade Runner, l'officier K de la police de Los Angeles, déterre un secret enfoui de longue date qui a le potentiel de plonger ce qui reste de la société dans le chaos.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=gCcx85zbxz4"
+  },
+  {
+    "title": "Knives Out",
+    "genre": "Mystère / Comédie",
+    "year": 2019,
+    "description": "Un détective excentrique enquête sur la mort mystérieuse d'un riche auteur de romans policiers dans son manoir isolé, où chaque membre de sa famille excentrique et dysfonctionnelle est un suspect potentiel.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=qGyiSBXiakE"
+  },
+  {
+    "title": "Matrix",
+    "genre": "Science-Fiction",
+    "year": 1999,
+    "description": "Un hacker informatique découvre que la réalité perçue par la majorité des humains est une simulation virtuelle créée par des machines intelligentes pour les exploiter comme source d'énergie, et rejoint une rébellion clandestine.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+  },
+  {
+    "title": "Gladiator",
+    "genre": "Action / Historique",
+    "year": 2000,
+    "description": "Un général romain trahi et dont la famille a été assassinée par un empereur corrompu cherche à se venger en gravissant les échelons des combats de gladiateurs dans l'arène du Colisée.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=owK1qxDselE"
+  },
+  {
+    "title": "Le Seigneur des Anneaux : La Communauté de l'Anneau",
+    "genre": "Fantasy",
+    "year": 2001,
+    "description": "Un jeune hobbit nommé Frodon Sacquet hérite d'un anneau magique maléfique et doit entreprendre un périlleux voyage à travers la Terre du Milieu avec une compagnie hétéroclite pour le détruire dans la montagne du Destin.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=V75dMMIW2B4"
+  },
+  {
+    "title": "Parasite",
+    "genre": "Thriller / Drame",
+    "year": 2019,
+    "description": "Toute la famille de Ki-taek, vivant dans la précarité, s'insère peu à peu dans le quotidien d'une riche famille bourgeoise en usurpant des qualifications professionnelles, jusqu'à ce qu'un incident inattendu vienne tout bouleverser.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=5xH0HfJHsaY"
+  },
+  {
+    "title": "Whiplash",
+    "genre": "Drame / Musique",
+    "year": 2014,
+    "description": "Un jeune batteur de jazz ambitieux intègre un conservatoire prestigieux et tombe sous la coupe d'un professeur impitoyable et tyrannique qui pousse ses élèves au-delà de leurs limites psychologiques et physiques.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/7fn624j5lj3xTme2SgiLCeuedmO.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=7d_jQycdQGo"
+  },
+  {
+    "title": "Premier Contact",
+    "genre": "Science-Fiction",
+    "year": 2016,
+    "description": "Lorsqu'12 mystérieux vaisseaux extraterrestres se posent en divers points du globe, une linguiste de renom est recrutée par l'armée pour tenter de communiquer avec eux et comprendre le but de leur venue pacifique ou menaçante.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/hYqBaPkWF99P1r7nI1vJ3x18YyM.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=tFMo3UJ4B4g"
+  },
+  {
+    "title": "Pulp Fiction",
+    "genre": "Thriller / Policier",
+    "year": 1994,
+    "description": "Les vies de deux tueurs à gages, d'un boxeur, de la femme d'un gangster et de deux braqueurs s'entremêlent à travers une série d'incidents violents et décalés à Los Angeles.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=s7EdQ4FqbhY"
+  },
+  {
+    "title": "Le Voyage de Chihiro",
+    "genre": "Animation / Fantasy",
+    "year": 2001,
+    "description": "Pendant son déménagement, une fillette de dix ans s'aventure dans un monde magique et mystérieux peuplé de dieux et de créatures fantastiques, où ses parents ont été transformés en cochons par une sorcière.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=ByXuk9QqQkk"
+  },
+  {
+    "title": "Jurassic Park",
+    "genre": "Aventure / Science-Fiction",
+    "year": 1993,
+    "description": "Un milliardaire excentrique invite des experts à visiter un parc d'attractions clandestin sur une île isolée, peuplé de dinosaures clonés grâce à l'ADN préhistorique, mais le système de sécurité finit par s'effondrer.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=lc0UehYemQA"
+  },
+  {
+    "title": "Spider-Man: New Generation",
+    "genre": "Animation / Action",
+    "year": 2018,
+    "description": "Un jeune adolescent de Brooklyn nommé Miles Morales découvre ses super-pouvoirs d'homme-araignée et doit s'associer à d'autres versions de Spider-Man venues d'autres dimensions pour arrêter une menace cosmique.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=g4Hbz2jLxvQ"
+  },
+  {
+    "title": "Dune : Première Partie",
+    "genre": "Science-Fiction",
+    "year": 2021,
+    "description": "Paul Atreides, un jeune homme brillant et doué d'un destin qui le dépasse, doit se rendre sur la planète la plus dangereuse de l'univers pour assurer l'avenir de sa famille et de son peuple face à de sombres trahisons.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=8g18jFHCLXk"
+  },
+  {
+    "title": "Shutter Island",
+    "genre": "Thriller / Mystère",
+    "year": 2010,
+    "description": "En 1954, deux marshals américains enquêtent sur la disparition mystérieuse d'une meurtrière internée dans un hôpital psychiatrique retranché sur une île isolée battue par les vents.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/4GDy0FiLMg0CK7FCkJn7dxMQnJi.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=v8yrZSkKxTA"
+  },
+  {
+    "title": "La La Land",
+    "genre": "Comédie musicale / Romance",
+    "year": 2016,
+    "description": "À Los Angeles, une aspirante actrice et un musicien de jazz passionné tombent amoureux tout en luttant pour concilier leurs aspirations professionnelles et leurs sacrifices personnels.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/uDO8zWDjaWwoFdJPsXWafKxH4iQ.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=0pdqf4P9MB8"
+  },
+  {
+    "title": "Get Out",
+    "genre": "Horreur / Thriller",
+    "year": 2017,
+    "description": "Un jeune photographe afro-américain se rend dans la propriété familiale reculée de sa petite amie blanche pour rencontrer ses parents, mais découvre progressivement une emprise psychologique et terrifiante.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/qHCvIaQwstWAIQBq0aZDCW1pZHz.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=DzfpyUB60YY"
+  },
+  {
+    "title": "Intouchables",
+    "genre": "Comédie / Drame",
+    "year": 2011,
+    "description": "Un aristocrate fortuné devenu tétraplégique après un accident de parapente engage un jeune homme tout juste sorti de prison comme aide à domicile, donnant lieu à une amitié improbable et pleine d'humour.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/o795lNhVKb3o265MvY86T45T5p1.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=34WIermrlf8"
+  },
+  {
+    "title": "Avatar",
+    "genre": "Science-Fiction",
+    "year": 2009,
+    "description": "Un marine paraplégique est envoyé sur la lointaine planète Pandora pour participer au programme Avatar, se retrouvant tiraillé entre les ordres de son armée cupide et la protection du peuple autochtone Na'vi.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/kyeShAc8rVWGIIMdN4tWv4GIMwF.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=5PSNL1qE6VY"
+  },
+  {
+    "title": "Le Parrain",
+    "genre": "Policier / Drame",
+    "year": 1972,
+    "description": "L'histoire de la puissante famille mafieuse Corleone en Amérique, menée par Don Vito Corleone, et la transformation progressive de son plus jeune fils Michael, qui bascule malgré lui dans le monde du crime organisé.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=sY1S34973zA"
+  },
+  {
+    "title": "Fight Club",
+    "genre": "Drame / Thriller",
+    "year": 1999,
+    "description": "Un employé de bureau insomniaque et désabusé croise la route d'un vendeur de savon charismatique et anarchiste, avec qui il fonde un club de combat clandestin qui va rapidement dégénérer en mouvement subversif.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=qtRKdVHc-cE"
+  },
+  {
+    "title": "Forrest Gump",
+    "genre": "Comédie dramatique",
+    "year": 1994,
+    "description": "L'incroyable parcours de Forrest Gump, un homme simple d'esprit doté d'un grand cœur, qui se retrouve témoin et acteur des plus grands événements historiques américains de la seconde moitié du XXe siècle.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=uPIEnswnZDs"
+  },
+  {
+    "title": "Le Silence des Agneaux",
+    "genre": "Thriller / Horreur",
+    "year": 1991,
+    "description": "Une jeune stagiaire du FBI est chargée d'interroger un redoutable tueur en série, brillant psychiatre et psychopathe incarcéré, pour l'aider à pister un autre criminel notoire surnommé Buffalo Bill.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=W6Mm8Sbe__o"
+  },
+  {
+    "title": "Spider-Man: Across the Spider-Verse",
+    "genre": "Animation / Action",
+    "year": 2023,
+    "description": "Miles Morales traverse le multivers où il fait la rencontre d'une équipe de Spider-Héros chargée de protéger son existence même, mais les héros se heurtent à un désaccord sur la gestion d'une terrible menace.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=cqGjhVJWtEg"
+  },
+  {
+    "title": "Seven",
+    "genre": "Thriller / Policier",
+    "year": 1995,
+    "description": "Deux policiers enquêtent sur les meurtres horribles commis par un tueur en série méticuleux qui structure ses crimes sadiques autour des sept péchés capitaux bibliques.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/6yoghtyTpznpBik8EngEmJskVUO.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=1QiLxCJiQX8"
+  },
+  {
+    "title": "WALL-E",
+    "genre": "Animation / Science-Fiction",
+    "year": 2008,
+    "description": "Dans un futur lointain, un petit robot compacteur de déchets laissé seul sur une Terre désertique et polluée découvre une nouvelle vocation inattendue lorsqu'il rencontre une sonde high-tech prénommée EVE.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/hBGRciOdnIo1rN64fC7cW8Qy1H5.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=CZ1CATNbXg0"
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "genre": "Romance / Science-Fiction",
+    "year": 2004,
+    "description": "Après une douloureuse rupture, un couple décide de s'effacer mutuellement de leur mémoire grâce à une procédure médicale expérimentale, plongeant dans les souvenirs qui s'effondrent peu à peu.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/5vZZCCm3jA3B21gW7bZfQz2e7z8.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=yHgwIZu3gjs"
+  },
+  {
+    "title": "The Truman Show",
+    "genre": "Comédie dramatique / Satire",
+    "year": 1998,
+    "description": "Un agent d'assurances ordinaire découvre peu à peu que toute sa vie n'est en réalité qu'une gigantesque émission de téléréalité diffusée en direct à l'échelle planétaire depuis sa naissance.",
+    "poster_url": "https://image.tmdb.org/t/p/w500/vuZA0SFuM2W5nE7D8QvQY85Lz5c.jpg",
+    "trailer_url": "https://www.youtube.com/watch?v=d_MjNYnAkGI"
+  }
+]
